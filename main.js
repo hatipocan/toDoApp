@@ -1,0 +1,1 @@
+(()=>{const t=document.getElementById("theme-button"),e=document.getElementById("html-base");t.addEventListener("click",(()=>{"light"===e.getAttribute("data-theme")?e.setAttribute("data-theme","dark"):e.setAttribute("data-theme","light")}))})();
