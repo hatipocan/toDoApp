@@ -88,6 +88,16 @@ const projectAdder = () => {
     addActionButton.setAttribute('role', 'button');
     addActionButton.innerText = 'Add Action';
 
+    const actionsRemoveList = document.createElement('li');
+    actionsRemoveList.classList.add('actions-remove-list');
+
+    const removeProjectButton = document.createElement('a');
+    removeProjectButton.setAttribute('href', '#');
+    removeProjectButton.setAttribute('class', 'remove-project-button');
+    removeProjectButton.setAttribute('role', 'button');
+    removeProjectButton.innerText = 'Remove';
+
+
 
 
         mainContainer.appendChild(projectMainContainer);
@@ -103,6 +113,15 @@ const projectAdder = () => {
 
         projectActionsContainer.appendChild(actionsAddList);
         actionsAddList.appendChild(addActionButton);
+
+        projectActionsContainer.appendChild(actionsRemoveList);
+        actionsRemoveList.appendChild(removeProjectButton);
+
+        removeProjectButton.addEventListener('click', (e)=> {
+            e.preventDefault();
+            mainContainer.removeChild(projectMainContainer);
+
+        })
 
         addActionButton.addEventListener('click', (e)=> {
 
@@ -152,7 +171,8 @@ const projectAdder = () => {
             actionsCommandsContainer.appendChild(commandsRemoveList);
             commandsRemoveList.appendChild(removeActionButton);
 
-            removeActionButton.addEventListener('click', ()=>{
+            removeActionButton.addEventListener('click', (e)=>{
+                e.preventDefault();
                 projectMainContainer.removeChild(actionsNav);
             })
 
